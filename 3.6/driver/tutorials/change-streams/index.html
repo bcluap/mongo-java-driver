@@ -269,28 +269,30 @@ to resume if it encounters a potentially recoverable error.</p>
 <ul>
 <li><p>The example below requires a <code>restaurants</code> collection in the <code>test</code> database. To create and populate the collection, follow the directions in <a href="https://github.com/mongodb/docs-assets/tree/drivers">github</a>.</p></li>
 
-<li><p>Include the following import statements:</p>
-
-<pre><code class="language-java"> import com.mongodb.Block;
- import com.mongodb.MongoClient;
- import com.mongodb.MongoClientURI;
- import com.mongodb.client.MongoCollection;
- import com.mongodb.client.MongoDatabase;
- import com.mongodb.client.model.FullDocument;
-     
- import org.bson.Document;
-</code></pre></li>
-
-<li><p>Include the following code which the examples in the tutorials will use to print the results of the aggregation:</p>
-
-<pre><code class="language-java"> Block&lt;Document&gt; printBlock = new Block&lt;Document&gt;() {
-        @Override
-        public void apply(final Document document) {
-            System.out.println(document.toJson());
-        }
-    };
-</code></pre></li>
+<li><p>Include the following import statements:</p></li>
 </ul>
+
+<pre><code class="language-java">import com.mongodb.Block;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.changestream.FullDocument;
+import com.mongodb.client.model.changestream.ChangeStreamDocument;
+import org.bson.Document;
+</code></pre>
+
+<ul>
+<li>Include the following code which the examples in the tutorials will use to print the results of the change stream:</li>
+</ul>
+
+<pre><code class="language-java">Block&lt;ChangeStreamDocument&lt;Document&gt;&gt; printBlock = new Block&lt;&gt;() {
+    @Override
+    public void apply(final ChangeStreamDocument&lt;Document&gt; changeStreamDocument) {
+        System.out.println(changeStreamDocument);
+    }
+};
+</code></pre>
 
 <h2 id="connect-to-a-mongodb-deployment">Connect to a MongoDB Deployment</h2>
 

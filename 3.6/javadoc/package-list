@@ -10,6 +10,7 @@ com.mongodb.client.gridfs.codecs
 com.mongodb.client.gridfs.model
 com.mongodb.client.jndi
 com.mongodb.client.model
+com.mongodb.client.model.changestream
 com.mongodb.client.model.geojson
 com.mongodb.client.model.geojson.codecs
 com.mongodb.client.result
